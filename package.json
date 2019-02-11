@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/linyimin-bupt/The-Beauty-of-Data-Structures-and-Algorithms/issues"
   },
-  "homepage": "https://github.com/linyimin-bupt/The-Beauty-of-Data-Structures-and-Algorithms#readme"
+  "homepage": "https://github.com/linyimin-bupt/The-Beauty-of-Data-Structures-and-Algorithms#readme",
+  "dependencies": {
+    "blue-tape": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/blue-tape": "^0.1.32"
+  }
 }
