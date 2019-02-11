@@ -1,0 +1,20 @@
+{
+  "cliOptions": {
+    "exclude": [
+      "src/api.ts"
+    ]
+  },
+  "rules": {
+    "interface-name"             : [true, "never-prefix"],
+    "trailing-comma"             : true,
+    "import-spacing"             : false,
+    "no-multi-spaces"            : false,
+    "member-ordering"            : false,
+    "typedef-whitespace"         : false,
+    "await-promise"              : false,
+    "arrow-parens"               : false,
+    "quotemark"                  : [true, "single", "avoid-escape"],
+    "semicolon"                  : [true, "never"],
+    "space-before-function-paren": [true, "always"]
+  }
+}
