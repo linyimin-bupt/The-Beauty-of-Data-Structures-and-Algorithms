@@ -41,8 +41,8 @@ export class SinglyLinkedList {
       this._head.next = node
       this._tail = node
     } else {
-      this._tail.next = node
-      this._tail      = node
+      node.next       = this._head.next
+      this._head.next = node
     }
     this._size++
   }
@@ -95,6 +95,25 @@ export class SinglyLinkedList {
         p = p.next
       }
     }
+  }
+  
+  public deleteTail () {
+    let p = this._head.next
+    if (!p) {
+      return
+    }
+    if (p.next === this._tail) {
+      this._head.next = null
+      this._tail      = this._head
+      this._size--
+      return
+    }
+    while(p && p.next != this._tail) {
+      p = p.next
+    }
+    this._tail = p!
+    this._tail.next = null
+    this._size--
   }
   
   public show (): string {
