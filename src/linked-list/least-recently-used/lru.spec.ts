@@ -1,5 +1,5 @@
-import test from 'blue-tape'
-import { LRU } from './lru'
+import test                 from 'blue-tape'
+import { LRU              } from './lru'
 import { SinglyLinkedList } from '../singly-linked-list/singly-linked-list'
 
 test ('lru', async t => {
