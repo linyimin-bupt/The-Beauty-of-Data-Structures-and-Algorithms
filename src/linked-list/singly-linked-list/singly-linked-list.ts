@@ -1,4 +1,4 @@
-class Node {
+export class Node {
   data: any
   next: Node | null
   
