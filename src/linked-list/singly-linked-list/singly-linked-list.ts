@@ -21,8 +21,16 @@ export class SinglyLinkedList {
     return this._head
   }
   
+  set head (node: Node) {
+    this._head = node
+  }
+  
   get tail (): Node {
     return this._tail
+  }
+  
+  set tail (node: Node) {
+    this._tail = node
   }
   
   get size (): number {
