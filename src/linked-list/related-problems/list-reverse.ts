@@ -17,6 +17,9 @@ export const reverse = function (list: SinglyLinkedList) {
     p = q
     q = r
   }
-  q!.next        = p
+  if (!q) {
+    return 
+  }
+  q.next        = p
   list.head.next = q!
 }
