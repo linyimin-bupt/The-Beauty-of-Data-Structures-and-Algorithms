@@ -1,6 +1,9 @@
-import test from 'blue-tape'
-import { isCycling, cycleEntranceNode } from './cycling-list'
-import { Node } from '../singly-linked-list/singly-linked-list'
+import test             from 'blue-tape'
+import { 
+  isCycling,
+  cycleEntranceNode
+                      } from './cycling-list'
+import { Node         } from '../singly-linked-list/singly-linked-list'
 
 test ('isCycling', async t => {
   let head = null
