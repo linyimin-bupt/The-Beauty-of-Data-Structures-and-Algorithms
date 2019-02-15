@@ -1,5 +1,5 @@
 import test from 'blue-tape'
-import { isCycling } from './cycling-list'
+import { isCycling, cycleEntranceNode } from './cycling-list'
 import { Node } from '../singly-linked-list/singly-linked-list'
 
 test ('isCycling', async t => {
@@ -20,4 +20,13 @@ test ('isCycling', async t => {
   enter.next      = new Node (2)
   enter.next.next = enter
   t.equal(2, isCycling(head)!.data, 'a cycling list')
+})
+
+test ('cycleEntranceNode', async t => {
+  let   head      = new Node (6)
+  const enter     = new Node (4)
+  head.next       = enter
+  enter.next      = new Node (2)
+  enter.next.next = enter
+  t.equal(4, cycleEntranceNode(head)!.data, 'entrance node')
 })

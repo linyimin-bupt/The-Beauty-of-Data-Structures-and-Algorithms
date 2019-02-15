@@ -23,3 +23,16 @@ export const isCycling = function (list: Node | null): Node | null{
   }
   return null
 }
+
+export const cycleEntranceNode = function (list: Node): Node | null {
+  let node = isCycling (list)
+  if (!node) {
+    return null
+  }
+  let slow = list
+  while (slow != node) {
+    node = node!.next
+    slow = slow.next!
+  }
+  return slow
+}
