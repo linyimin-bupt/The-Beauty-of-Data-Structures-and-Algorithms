@@ -5,8 +5,9 @@ import { SinglyLinkedList, Node } from '../singly-linked-list/singly-linked-list
  */
 export const reverse = function (list: SinglyLinkedList) {
   let p = list.head.next
-  if (!p) {
-    return list.head
+  // 如果链表为空或只含有一个元素直接返回
+  if (!p || !p.next) {
+    return
   }
   let q = p.next
   p.next = null
@@ -16,9 +17,6 @@ export const reverse = function (list: SinglyLinkedList) {
     q.next = p
     p = q
     q = r
-  }
-  if (!q) {
-    return 
   }
   q.next        = p
   list.head.next = q!
