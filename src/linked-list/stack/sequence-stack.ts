@@ -1,13 +1,13 @@
 import { Stack } from './stack'
 
-export class SequenceStack implements Stack<number> {
-  private _data: number[]
+export class SequenceStack<T> implements Stack<T> {
+  private _data: T[]
   private _size: number
   private _count: number
   constructor (size: number) {
     this._size = size
     this._count = 0
-    this._data = new Array<number>(size).fill(0)
+    this._data = new Array<T>(size)
   }
   
   get size (): number {
@@ -18,7 +18,7 @@ export class SequenceStack implements Stack<number> {
     return this._count
   }
   
-  public push (data: number): boolean {
+  public push (data: T): boolean {
     if (this._count >= this._size) {
       return false
     }
@@ -26,7 +26,7 @@ export class SequenceStack implements Stack<number> {
     return true
   }
   
-  public pop (): number | null {
+  public pop (): T | null {
     if (this._count > 0) {
       const data = this._data[--this._count]
       return data

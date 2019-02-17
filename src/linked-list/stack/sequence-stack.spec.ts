@@ -2,25 +2,25 @@ import test              from 'blue-tape'
 import { SequenceStack } from './sequence-stack'
 
 test ('size', async t => {
-  const stack = new SequenceStack (10)
+  const stack = new SequenceStack<number> (10)
   
   t.equal (10, stack.size)
 })
 
 test ('size', async t => {
-  const stack = new SequenceStack (10)
+  const stack = new SequenceStack<number> (10)
   
   t.equal (10, stack.size)
 })
 
 test ('count', async t => {
-  const stack = new SequenceStack (10)
+  const stack = new SequenceStack<number> (10)
   
   t.equal (0, stack.count)
 })
 
 test ('push', async t => {
-  const stack = new SequenceStack (10)
+  const stack = new SequenceStack<number> (10)
   stack.push (10)
   stack.push (8)
   t.equal (2, stack.count, 'size')  
@@ -30,7 +30,7 @@ test ('push', async t => {
 })
 
 test ('push', async t => {
-  const stack = new SequenceStack (2)
+  const stack = new SequenceStack<number> (2)
   stack.push (10)
   stack.push (8)
   const result = stack.push (6)
