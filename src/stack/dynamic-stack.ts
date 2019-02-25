@@ -6,7 +6,7 @@ export class DynamicStack<T> implements Stack<T> {
   private _count: number
   private top: number
   
-  constructor (size: number) {
+  constructor (size: number = 16) {
     this._size  = size
     this._count = 0
     this.top    = 0
