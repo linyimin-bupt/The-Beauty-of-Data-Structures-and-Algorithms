@@ -4,12 +4,12 @@ export class DynamicStack<T> implements Stack<T> {
   private data: T[]
   private _size: number
   private _count: number
-  private top: number
+  private _top: number
   
   constructor (size: number = 16) {
     this._size  = size
     this._count = 0
-    this.top    = 0
+    this._top    = 0
     this.data = new Array<T>(size)
   }
   
@@ -31,16 +31,23 @@ export class DynamicStack<T> implements Stack<T> {
       
       this.data = temp
     }
-    this.data[this.top] = data
-    this.top++
+    this.data[this._top] = data
+    this._top++
     this._count++
     return true
   }
   
   public pop (): T | null {
-    if (this.top > 0) {
+    if (this._top > 0) {
       this._count--
-      return this.data[--this.top]
+      return this.data[--this._top]
+    }
+    return null
+  }
+  
+  public top (): T | null {
+    if (this._top > 0) {
+      return this.data[this._top - 1]
     }
     return null
   }

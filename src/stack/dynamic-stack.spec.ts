@@ -52,3 +52,20 @@ test ('count()', async t => {
   t.equal(0, stack.count, 'count')
 
 })
+
+test ('top ()', async t => {
+  let stack = new DynamicStack<number> (1)
+  t.equal(0, stack.count)
+  
+  stack.push(1)
+  
+  t.equal(1, stack.count)
+  
+  t.equal (1, stack.top(), 'top')
+  
+  t.equal(1, stack.count)
+  
+  stack.push(5)
+  t.equal(5, stack.top(), 'top')
+  t.equal(2, stack.count)
+})
