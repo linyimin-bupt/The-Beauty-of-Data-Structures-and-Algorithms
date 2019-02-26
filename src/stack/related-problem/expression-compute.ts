@@ -6,22 +6,27 @@ import { DynamicStack } from '../dynamic-stack'
  */
 export const computeExp = function (expression: string): number {
   expression        = expression.replace(/ /g, '')
-  console.log(expression)
   const data        = new DynamicStack<number> ()
   const operator    = new DynamicStack<string> ()
   let   valueString = ''
-  let   value       = 0
+  let   value: number | null       = null
   for (let i = 0; i < expression.length; i++) {
     if (isNumber(expression[i]) || expression[i] === '.') {
       valueString += expression[i]
       value = valueString.indexOf('.') > -1 ? parseFloat(valueString) : parseInt(valueString)
       continue
     }
+    
+    
     valueString = ''
-    data.push(value)
+    if (value !== null) {
+      data.push(value)
+      // 在代码块内使用代码块外的变量时,需要考虑是否将变量值还原
+      value = null
+    }
     const currentOp = expression[i]
     let lastOp = operator.top()
-    while (lastOp && compare(lastOp, currentOp)) {
+    while (lastOp && lastOp !== '(' && compare(lastOp, currentOp)) {
       const right = data.pop()
       const left  = data.pop()
       if (left === null || right === null) {
@@ -32,10 +37,14 @@ export const computeExp = function (expression: string): number {
       operator.pop()
       lastOp = operator.top()
     }
+    if (currentOp === ')') {
+      operator.pop()
+      continue
+    }
     operator.push (currentOp)
-    
   }
-  data.push(value)
+  // 将最后一个操作数压入栈中
+  data.push(value!)
   while (operator.top()) {
     const right = data.pop()
     const left  = data.pop()
@@ -58,15 +67,22 @@ function compare (op1: string, op2: string): boolean {
   switch (op1) {
     case '+':
     case '-':
-      if (op2 === '-' || op2 === '+') {
+      if (op2 === '-' || op2 === '+' || op2 === ')') {
         return true
       }
-      if (op2 === '*' || op2 === '/') {
+      if (op2 === '*' || op2 === '/' || op2 === '(') {
         return false
       }
     case '*':
     case '/':
+      if (op2 === '(') {
+        return false
+      }
       return true
+    case '(':
+      return true
+    case ')':
+      return false
     default:
       throw new Error('no support type')
   }

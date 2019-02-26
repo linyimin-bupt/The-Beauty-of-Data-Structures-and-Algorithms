@@ -26,5 +26,12 @@ test ('expression compute', async t => {
   const expression = '34.1 + 13 * 9 + 44 - 12 / 3'
   const result = computeExp (expression)
   
-  t.equal (result, 191.1, '34 + 13 * 9 + 44 - 12 / 3')
+  t.equal (result, 191.1, '34.1 + 13 * 9 + 44 - 12 / 3')
+})
+
+test ('expression compute', async t => {
+  const expression = '(34 - 14) * 9 + 44 - 12 / 3'
+  const result = computeExp (expression)
+  
+  t.equal (result, 220, '(34 - 14) * 9 + 44 - 12 / 3')
 })
