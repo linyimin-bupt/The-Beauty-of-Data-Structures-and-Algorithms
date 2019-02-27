@@ -2,9 +2,9 @@ import test                             from 'blue-tape'
 import { 
   generateArray,
   isSorted 
-                                      } from './util'
+                                      } from '../util'
 import { shellSort                    } from './shell-sort'
-import { insertionSortOptimization    } from './insertion-sort'
+import { insertionSortOptimization    } from '../insertion-sort/insertion-sort'
 
 test ('insertion sort', async t => {
   const arr = generateArray (100000, 10000)

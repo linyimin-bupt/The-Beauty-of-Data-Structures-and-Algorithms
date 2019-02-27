@@ -1,4 +1,4 @@
-import { swap } from './util'
+import { swap } from '../util'
 
 export const bubbleSort = function<T> (data: T[]): T[] {
   for (let i = 0; i < data.length; i++) {

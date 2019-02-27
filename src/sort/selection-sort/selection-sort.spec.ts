@@ -2,7 +2,7 @@ import test               from 'blue-tape'
 import { 
   generateArray,
   isSorted
-                        } from './util'
+                        } from '../util'
 import { selectionSort  } from './selection-sort'
 
 test ('selection sort', async t => {

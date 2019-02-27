@@ -1,5 +1,5 @@
 import test                         from 'blue-tape'
-import { generateArray, isSorted  } from './util'
+import { generateArray, isSorted  } from '../util'
 import {
   insertionSort,
   insertionSortOptimization            
