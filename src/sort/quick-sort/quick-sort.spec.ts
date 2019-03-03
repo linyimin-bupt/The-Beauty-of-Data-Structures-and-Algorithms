@@ -2,7 +2,7 @@ import test             from 'blue-tape'
 import { 
   generateArray,
   isSorted, 
-                      } from '../sort/util'
+                      } from '../util'
 import { quickSort    } from './quick-sort'
 
 test ('quick sort', async t => {
