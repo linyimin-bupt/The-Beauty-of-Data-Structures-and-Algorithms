@@ -1,5 +1,5 @@
 import test               from 'blue-tape'
-import { generateArray  } from './util'
+import { generateArray  } from '../util'
 import { 
   getElement,
   getElementRecursive,
