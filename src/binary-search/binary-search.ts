@@ -2,8 +2,8 @@
 export const bianrySearch = function (data: number[], target: number): number {
   let left  = 0
   let right = data.length - 1
-  while (left < right) {
-    const mid = Math.floor ((left + right) / 2)
+  while (left <= right) {
+    const mid = left + ((right - left) >> 1)
     if (data[mid] === target) {
       return mid
     }
