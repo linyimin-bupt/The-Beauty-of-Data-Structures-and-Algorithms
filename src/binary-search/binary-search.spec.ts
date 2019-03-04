@@ -1,10 +1,10 @@
 import test               from 'blue-tape'
 import { generateArray  } from '../sort/util'
-import { bianrySearch   } from './binary-search'
+import { binarySearch   } from './binary-search'
 
 test ('binary search', async t => {
   const arr = generateArray (100000, 0)
-  const result = bianrySearch (arr, 1000)
+  const result = binarySearch (arr, 1000)
   
   const EXPECTED = 1000
   
@@ -13,7 +13,7 @@ test ('binary search', async t => {
 
 test ('binary search', async t => {
   const arr = generateArray (100000, 0)
-  const result = bianrySearch (arr, 1000000)
+  const result = binarySearch (arr, 1000000)
   
   const EXPECTED = -1
   
