@@ -35,3 +35,19 @@ export const swap = function<T> (data: T[], i: number, j: number) {
   data [i]   = data[j]
   data [j]   = temp
 }
+
+export const generateRangeArray = function (n: number, l: number, r: number, swap: number = 100): number[] {
+  const data = new Array<number> ()
+  for(let i = 0; i < n; i++) {
+    const random = Math.floor (Math.random() * (r - l + 1)) + l
+    data.push (random)
+  }
+  for (let i = 0; i < swap; i++) {
+    const left   = Math.floor (Math.random() * n)
+    const right  = Math.floor (Math.random() * n)
+    const temp   = data[left]
+    data [left]  = data[right]
+    data [right] = temp
+  }
+  return data
+}
