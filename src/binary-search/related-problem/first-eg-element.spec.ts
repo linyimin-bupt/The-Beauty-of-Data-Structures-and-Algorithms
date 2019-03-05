@@ -4,7 +4,6 @@ import {
   isSorted,
   generateRangeArray,
                               } from '../../sort/util'
-import { BSGetFirstElement    } from './first-element'
 import { mergeSort            } from '../../sort/merge-sort/merge-sort-iterator'
 import { countingSort         } from '../../sort/counting-sort/counting-sort'
 import { BSGetFirstEgElement  } from './first-eg-element'
