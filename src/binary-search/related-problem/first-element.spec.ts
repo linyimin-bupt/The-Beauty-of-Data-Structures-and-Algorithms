@@ -1,8 +1,12 @@
 import test                     from 'blue-tape'
-import { generateArray, isSorted, generateRangeArray        } from '../../sort/util'
-import { BSGetFirstElement } from './first-element'
-import { mergeSort } from '../../sort/merge-sort/merge-sort-iterator'
-import { countingSort } from '../../sort/counting-sort/counting-sort'
+import { 
+  generateArray,
+  isSorted,
+  generateRangeArray,
+                              } from '../../sort/util'
+import { BSGetFirstElement    } from './first-element'
+import { mergeSort            } from '../../sort/merge-sort/merge-sort-iterator'
+import { countingSort         } from '../../sort/counting-sort/counting-sort'
 
 test ('binary search get first element', async t => {
   const arr = generateArray (100000, 0)
