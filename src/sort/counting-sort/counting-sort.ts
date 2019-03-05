@@ -12,7 +12,7 @@ export const countingSort = function (data: number[]): number[] {
   }
   // 计算每个元素出现的次数
   const range = max - min + 1
-  const countArr = new Array<number> (range)
+  const countArr = new Array<number> (range).fill(0)
   for (let i = 0; i < data.length; i++) {
     countArr[data[i] - min]++
   }
