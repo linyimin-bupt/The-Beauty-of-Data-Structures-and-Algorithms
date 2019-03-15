@@ -11,7 +11,7 @@ class Node {
   }
 }
 export class BST {
-  private root : Node | null
+  public  root : Node | null
   private _size: number
   
   constructor () {
@@ -36,7 +36,7 @@ export class BST {
     }
     let p = this.root
     while (p != null) {
-      if (p.data >= data) {
+      if (p.data <= data) {
         if (p.right === null) {
           p.right = node
           return
