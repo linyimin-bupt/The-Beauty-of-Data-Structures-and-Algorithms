@@ -118,4 +118,12 @@ export class BST {
       pTarget.right = child
     }
   }
+  public pre (node: Node | null) {
+    if (node === null) {
+      return
+    }
+    this.pre(node.left)
+    console.log(node.data)
+    this.pre(node.right)
+  }
 }
