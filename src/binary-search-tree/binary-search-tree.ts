@@ -69,6 +69,53 @@ export class BST {
   }
   
   public remove (data: number) {
+    if (! this.root) {
+      return
+    }
+    let target: Node | null  = this.root  // 表示要删除的节点
+    let pTarget: Node | null = null       // 表示要删除节点的父节点
+    while (target != null && target.data != data) {
+      pTarget = target
+      if (target.data >= data) {
+        target = target.right
+      } else {
+        target = target.left
+      }
+    }
+    // 删除的节点不存在
+    if (!target) {
+      return
+    }
+    this._size--
+    // 如果要删除的节点存在左右两个孩子节点
+    if (target.left && target.right) {
+      // 找到要删除节点右子树的最小值
+      pTarget = target
+      let targetMin  = target.right
+      while (targetMin.left !== null) {
+        pTarget = targetMin
+        targetMin  = targetMin.left
+      }
+      // 替换值
+      target.data    = targetMin.data
+      
+      target = targetMin
+    }
+    let child: Node | null = null
+    // 要删除的节点只有左节点
+    if (target.left) {
+      child = target.left
+    } else if (target.right) {
+      child = target.right
+    }
     
+    // 要删除的节点是跟节点
+    if (pTarget === null) {
+      this.root = null
+    } else if (pTarget.left){
+      pTarget.left = child
+    } else {
+      pTarget.right = child
+    }
   }
 }
