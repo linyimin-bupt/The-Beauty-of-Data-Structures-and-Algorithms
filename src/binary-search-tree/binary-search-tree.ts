@@ -76,7 +76,7 @@ export class BST {
     let pTarget: Node | null = null       // 表示要删除节点的父节点
     while (target != null && target.data != data) {
       pTarget = target
-      if (target.data >= data) {
+      if (target.data < data) {
         target = target.right
       } else {
         target = target.left
@@ -111,8 +111,8 @@ export class BST {
     
     // 要删除的节点是跟节点
     if (pTarget === null) {
-      this.root = null
-    } else if (pTarget.left){
+      this.root = child
+    } else if (pTarget.left === target){
       pTarget.left = child
     } else {
       pTarget.right = child
