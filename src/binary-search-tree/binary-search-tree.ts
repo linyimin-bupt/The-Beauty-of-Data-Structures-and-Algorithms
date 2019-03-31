@@ -118,6 +118,14 @@ export class BST {
       pTarget.right = child
     }
   }
+  
+  // 二叉树的高度
+  public height (node: Node | null): number {
+    if (node === null) {
+      return 0
+    }
+    return Math.max(this.height(node.left), this.height(node.right)) + 1
+  }
   public pre (node: Node | null) {
     if (node === null) {
       return

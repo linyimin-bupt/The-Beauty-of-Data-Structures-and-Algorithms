@@ -14,6 +14,7 @@ test ('insert()', async t => {
   bst.insert (3)
   bst.insert (5)
   t.equal (bst.size, 7, 'size = 7')  
+  t.equal(7, bst.height(bst.root), 'height')
 })
 
 test ('find()', async t => {
@@ -51,10 +52,12 @@ test ('remove()', async t => {
   bst.insert(16)
   bst.insert(9)
   bst.insert(11)
-
   t.equal (bst.size, 5)
+  t.equal(3, bst.height(bst.root), 'height')
   
   bst.remove (13)
+  t.equal(3, bst.height(bst.root), 'height')
+  
   t.equal (bst.find(13), null)
   t.equal (bst.root!.data, 16)
   t.equal (null, bst.find(9)!.left)
